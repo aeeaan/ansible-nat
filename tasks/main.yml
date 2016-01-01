@@ -1,2 +1,3 @@
 ---
-# tasks file for correcthorse.nat
+- name: enable ipv4 forwarding
+  sysctl: name=net.ipv4.ip_forward value=1 reload=yes state=present
