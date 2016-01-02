@@ -1,2 +1,3 @@
 ---
-# handlers file for correcthorse.nat
+- name: set external default
+  command: firewall-cmd --set-default-zone=external

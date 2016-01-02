@@ -5,7 +5,7 @@
 - name: configure external zone
   template: src=external.xml.j2 dest=/etc/firewalld/zones/external.xml owner=root group=root mode=0644 force={{ nat_force_zone_templates }}
   when: nat_external_interfaces is defined and nat_external_interfaces|length > 0
-  notify: reload firewall
+  notify: restart firewall
 
 - name: configure internal zone
   template: src=internal.xml.j2 dest=/etc/firewalld/zones/internal.xml owner=root group=root mode=0644 force={{ nat_force_zone_templates }}
