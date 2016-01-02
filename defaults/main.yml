@@ -1,3 +1,6 @@
 ---
 nat_bastion: false
-
+nat_force_zone_templates: true
+nat_internal_sources: []
+nat_external_interfaces:
+  - eth0

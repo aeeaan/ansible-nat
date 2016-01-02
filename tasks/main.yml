@@ -2,6 +2,16 @@
 - name: enable ipv4 forwarding
   sysctl: name=net.ipv4.ip_forward value=1 reload=yes state=present
 
+- name: configure external zone
+  template: src=external.xml.j2 dest=/etc/firewalld/zones/external.xml owner=root group=root mode=0644 force={{ nat_force_zone_templates }}
+  when: nat_external_interfaces is defined and nat_external_interfaces|length > 0
+  notify: reload firewall
+
+- name configure internal zone
+  template: src=internal.xml.j2 dest=/etc/firewalld/zones/internal.xml owner=root group=root mode=0644 force={{ nat_force_zone_templates }}
+  when: nat_internal_sources is defined and nat_internal_sources|length > 0
+  notify: reload firewall
+
 - name: install ncat
   yum: name=nmap-ncat state=present
   when: nat_bastion == true
