@@ -9,7 +9,7 @@ Role Variables
 
 | Variable				| Default				| Notes					|
 | :---					| :---					| :---					|
-| 					| 					| 					|
+| nat_bastion				| false					| Use NAT server as bastion host	|
 
 
 Example Playbook

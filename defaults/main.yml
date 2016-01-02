@@ -1,2 +1,3 @@
 ---
-# defaults file for correcthorse.nat
+nat_bastion: false
+
